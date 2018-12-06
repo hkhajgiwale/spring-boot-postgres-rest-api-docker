@@ -9,13 +9,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Service
-public class    MessageServiceImpl implements MessageService{
+public class  MessageServiceImpl implements MessageService{
 
     @Autowired
     private MessageRepository messageRepository;
 
     @Override
     public Message saveMessage(Message message) {
+
         return messageRepository.save(message);
     }
 
@@ -30,8 +31,13 @@ public class    MessageServiceImpl implements MessageService{
     }
 
     @Override
-    public void delete(Serializable id){
-        messageRepository.deleteById((Long) id);
+    public void deleteByName(Serializable message_from){
+        messageRepository.deleteByName((String) message_from);
+    }
+
+    @Override
+    public List<Message> getMessageByName(Serializable message_from){
+        return messageRepository.getByName((String) message_from);
     }
 
 }

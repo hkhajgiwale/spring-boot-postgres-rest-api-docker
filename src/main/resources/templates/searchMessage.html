@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form class="form-inline"  action="#" th:action="@{/searchedMessage}" th:object="${message}" method="post">
+    <div class="form-group mb-2">
+        <label for="staticEmail2" class="sr-only">Email</label>
+        <input type="text"th:field="*{messageFrom}"  readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+</form>
+</body>
+</html>

@@ -23,22 +23,34 @@ public class MessageController {
         return new ResponseEntity<Message>(message, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     public ResponseEntity<Message> getMessage(@PathVariable("id") Long id) {
         Message message = messageService.getMessageById(id);
-        if(message == null){
+        if (message == null) {
             return new ResponseEntity<Message>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<Message>(message,HttpStatus.OK);
+        return new ResponseEntity<Message>(message, HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/from/{message_from}", method = RequestMethod.GET)
+    public ResponseEntity<List<Message>> getMessage(@PathVariable("message_from") String message_from) {
+        List<Message> messages = messageService.getMessageByName(message_from);
+        if (messages.isEmpty())
+            return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<List<Message>>(messages, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
-    public ResponseEntity<List<Message>> getAllMessages(){
+    public ResponseEntity<List<Message>> getAllMessages() {
         List<Message> messages = messageService.getAllMessages();
-        if(messages.isEmpty())
+        if (messages.isEmpty())
             return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
-        return new ResponseEntity<List<Message>>(messages,HttpStatus.OK);
+        return new ResponseEntity<List<Message>>(messages, HttpStatus.OK);
     }
 
-
+    @DeleteMapping(value = "/delete/{message_from}")
+    public void deleteMessage(@PathVariable("message_from") String message_from){
+        messageService.deleteByName(message_from);
+    }
 }

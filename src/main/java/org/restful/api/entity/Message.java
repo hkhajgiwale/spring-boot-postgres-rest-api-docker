@@ -18,7 +18,7 @@ public class Message implements java.io.Serializable {
     @Column(name = "message_description", length = 50)
     private String messageDescription;
 
-    @Column(name = "messaage_from", length = 50)
+    @Column(name = "message_from", length = 50)
     private String messageFrom;
 
     public Message(){
@@ -30,6 +30,7 @@ public class Message implements java.io.Serializable {
     }
 
     public Long getId() {
+
         return id;
     }
 
