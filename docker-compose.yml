@@ -1,0 +1,16 @@
+version: '2'
+services:
+  api_app:
+    image: api_app
+    ports:
+    - "8080:8080"
+    depends_on:
+    - api_db
+  api_db:
+    image: postgres
+    ports:
+     - "5432:5432"
+    environment:
+     - POSTGRES_PASSWORD=allowme
+     - POSTGRES_USER=harshk
+     - POSTGRES_DB=messages_api
