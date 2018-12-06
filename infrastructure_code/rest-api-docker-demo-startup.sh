@@ -12,7 +12,7 @@ sudo apt-get install git --assume-yes;
 
 echo "## Installing Java"
 sudo apt-get install default-jre --assume-yes;
-sudo add-apt-repository ppa:webupd8team/java --assume-yes;
+sudo add-apt-repository ppa:webupd8team/java -y;
 sudo apt-get update;
 echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
 sudo apt-get install oracle-java8-installer --assume-yes;
@@ -35,7 +35,7 @@ sudo apt-get install \
     software-properties-common --assume-yes;
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -;
 sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository --assume-yes \
+sudo add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
