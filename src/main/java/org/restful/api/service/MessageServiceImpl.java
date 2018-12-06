@@ -40,4 +40,8 @@ public class  MessageServiceImpl implements MessageService{
         return messageRepository.getByName((String) message_from);
     }
 
+    @Override
+    public List<Message> getMessageByDescription(Serializable message_description){
+        return messageRepository.getByDescription((String) message_description);
+    }
 }

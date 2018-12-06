@@ -41,6 +41,13 @@ public class MessageController {
         return new ResponseEntity<List<Message>>(messages, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/message/{message_description}", method = RequestMethod.GET)
+    public ResponseEntity<List<Message>> getMessageByDescription(@PathVariable("message_description") String message_description){
+        List<Message> messages =  messageService.getMessageByDescription(message_description);
+        if(messages.isEmpty())
+            return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<List<Message>>(messages, HttpStatus.OK);
+    }
     @RequestMapping(value = "/messages", method = RequestMethod.GET)
     public ResponseEntity<List<Message>> getAllMessages() {
         List<Message> messages = messageService.getAllMessages();

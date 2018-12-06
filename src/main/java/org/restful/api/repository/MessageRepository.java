@@ -16,7 +16,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 @Query(value = "SELECT m FROM Message m WHERE m.messageFrom LIKE :message_from")
 List<Message> getByName(@Param("message_from")String message_from);
 
-
+@Query(value = "SELECT m FROM Message m WHERE m.messageDescription LIKE %:message_description%")
+List<Message> getByDescription(@Param("message_description")String message_from);
 
 @Transactional
 @Modifying
