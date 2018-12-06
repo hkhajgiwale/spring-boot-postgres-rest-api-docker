@@ -1,4 +1,4 @@
 mvnw*
 *.pem
 *.iml
-.terraform
+.terraform/
