@@ -27,4 +27,35 @@ There are multiple ways by which this API can be loaded
     
       a. chmod +x boot_application.sh
       b. ./boot_application.sh
+      
+  
+
+  ## REST API DOCUMENTATION
+  
+  1. Get all messages
     
+            GET http://rest-docker.ml:8080/api/showMessages
+        
+  2. Get specific message by ID
+        
+            GET http://rest-docker.ml:8080/api/id/{id}
+        
+  3. Get specific message by name
+        
+            GET http://rest-docker.ml:8080/api/from/{message_from}
+  4. Put the data
+  
+            POST http://rest-docker.ml:8080/api
+        
+            Payload
+            {
+                "messageFrom":"harsh",
+                "messageDescription":"This is message 1"
+            }
+    
+  5. Delete the data
+        
+            DELETE http://rest-docker.ml:8080/api/delete/{message_from}
+ 
+ 
+ ## Using User Interface    
