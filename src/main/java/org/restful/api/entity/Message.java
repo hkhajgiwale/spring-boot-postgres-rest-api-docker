@@ -1,6 +1,7 @@
 package org.restful.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
@@ -20,6 +21,9 @@ public class Message implements java.io.Serializable {
 
     @Column(name = "message_from", length = 50)
     private String messageFrom;
+
+    @Column(name = "is_palindrome")
+    private boolean palindrome;
 
     public Message(){
 
@@ -54,9 +58,18 @@ public class Message implements java.io.Serializable {
         this.messageFrom = messageFrom;
     }
 
+    public boolean isPalindrome(){
+        return this.palindrome;
+    }
+
+    public void setPalindrome(boolean palindrome){
+        this.palindrome = palindrome;
+    }
+
     public Message(String messageDescription, String messageFrom){
         this.messageDescription = messageDescription;
         this.messageFrom = messageFrom;
     }
+
 
 }

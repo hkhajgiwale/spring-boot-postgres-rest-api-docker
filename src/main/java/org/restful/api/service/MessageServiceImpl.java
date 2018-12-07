@@ -16,7 +16,16 @@ public class  MessageServiceImpl implements MessageService{
 
     @Override
     public Message saveMessage(Message message) {
-
+        String reverseString = "";
+        String messageDescription = message.getMessageDescription();
+        int messageLength = messageDescription.length();
+        for(int i = messageLength - 1; i >= 0; i--){
+            reverseString = reverseString + messageDescription.charAt(i);
+        }
+        if(messageDescription.equalsIgnoreCase(reverseString))
+            message.setPalindrome(true);
+        else
+            message.setPalindrome(false);
         return messageRepository.save(message);
     }
 

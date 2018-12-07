@@ -28,6 +28,7 @@ public class ConsumerController {
 
     @PostMapping("/showMessage")
     public String messageSubmit(@ModelAttribute Message message) {
+
         messageService.saveMessage(message);
         return "showMessage";
     }
