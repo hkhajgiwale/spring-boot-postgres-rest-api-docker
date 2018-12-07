@@ -69,3 +69,8 @@ There are multiple ways by which this API can be loaded
    http://rest-docker.ml:8080/addMessage
    
  
+## Future Endeavours
+
+    1. Add the implementation of pulling image from dockerhub   
+    2. Orchestrate using kubernetes
+    3. Make use of API Gateway and ECS
