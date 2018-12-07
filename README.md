@@ -59,3 +59,13 @@ There are multiple ways by which this API can be loaded
  
  
  ## Using User Interface    
+   
+   1. Show all messages
+   
+   http://rest-docker.ml:8080/showMessages
+   
+   2. Add message
+   
+   http://rest-docker.ml:8080/addMessage
+   
+ 
